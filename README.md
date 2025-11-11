@@ -10,6 +10,16 @@ Tujuan utama proyek ini adalah untuk:
 - Menggunakan **Binary Search** untuk mencari harga barang dengan efisien.
 
 ---
+## Functions
+| Function | Use for |
+|-----------|----------|
+| `tambahData()` | Menambahkan data barang baru (nama, kategori, harga) ke dalam array `dataBarang`. |
+| `tampilkanData()` | Menampilkan seluruh data barang yang tersimpan di array. |
+| `getHargaByKategori()` | Mengambil seluruh daftar harga dari kategori tertentu dan menyimpannya ke dalam array `hargaKategori`. |
+| `insertionSort()` | Mengurutkan array `hargaKategori` secara ascending menggunakan algoritma Insertion Sort. |
+| `binarySearch()` | Mencari harga yang sesuai atau paling dekat dengan input pengguna menggunakan algoritma Binary Search. |
+| `main()` | Menjalankan alur utama program dan menampilkan menu interaktif untuk pengguna. |
+
 ## Compile
 ```bash
 g++ lookupharga.cpp -o lookup
