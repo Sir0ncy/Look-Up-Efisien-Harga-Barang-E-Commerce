@@ -18,7 +18,6 @@ Tujuan utama proyek ini adalah untuk:
 | `getHargaByKategori()` | Mengambil seluruh daftar harga dari kategori tertentu dan menyimpannya ke dalam array `hargaKategori`. |
 | `insertionSort()` | Mengurutkan array `hargaKategori` secara ascending menggunakan algoritma Insertion Sort. |
 | `binarySearch()` | Mencari harga yang sesuai atau paling dekat dengan input pengguna menggunakan algoritma Binary Search. |
-| `main()` | Menjalankan alur utama program dan menampilkan menu interaktif untuk pengguna. |
 
 ## Compile
 ```bash
