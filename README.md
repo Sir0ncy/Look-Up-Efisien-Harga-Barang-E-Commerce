@@ -21,7 +21,7 @@ Tujuan utama proyek ini adalah untuk:
 
 ## Compile
 ```bash
-g++ lookupharga.cpp -o lookup
+g++ LookupHarga.cpp -o lookup
 
 ./lookup
 ```
