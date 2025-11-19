@@ -76,16 +76,19 @@ int getHargaByKategori(Barang barang[], int &jumlahBarang, std::string kategori,
     return count;
 }
 
-// Method Insertion Sorting Ascending
-void insertionSort(int arr[], int n) {
+// Method Insertion Sorting Ascending Parallel untuk sorting index yang dihasilkan method getHargaByKategori
+void insertionSortParallel(int arr[], int indexArr[], int n) {
     for (int i = 1; i < n; i++) {
         int temp = arr[i];
+        int tempIdx = indexArr[i];
         int j = i - 1;
         while (j >= 0 && arr[j] > temp) {
             arr[j + 1] = arr[j];
+            indexArr[j + 1] = indexArr[j];
             j--;
         }
         arr[j + 1] = temp;
+        indexArr[j + 1] = tempIdx;
     }
 }
 
@@ -206,7 +209,7 @@ int main() {
                 continue;
             }
 
-            insertionSort(hargaKategori, jumlah);
+            insertionSortParallel(hargaKategori, indexKategori, jumlah);
 
             int target;
             std::cout << "Masukkan harga yang dicari: ";
@@ -217,8 +220,12 @@ int main() {
             }
             std::cin.ignore();
 
-            int idx = binarySearch(hargaKategori, jumlah, target);
-            std::cout << "Hasil: Rp " << hargaKategori[idx] << "\n";
+            int idx = binarySearch(hargaKategori, jumlah, target); // BinSeach mereturn index harga match/terdekat dari array hargaKategori
+            int realIndexStruct = indexKategori[idx]; // Dari index diatas kita bisa tentukan posisi index struct aslinya yang disimpan di array indexKategori
+            std::cout << "============PENCARIAN HARGA============\n";
+            std::cout << "Nama Barang: " << dataBarang[realIndexStruct].nama << "\n";
+            std::cout << "Kategori: " << dataBarang[realIndexStruct].kategori << "\n";
+            std::cout << "Harga: Rp. " << dataBarang[realIndexStruct].harga << "\n";
         }
 
         else if (pilih == 5) {
