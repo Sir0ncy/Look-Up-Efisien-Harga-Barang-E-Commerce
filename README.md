@@ -13,8 +13,10 @@ Tujuan utama proyek ini adalah untuk:
 ## Functions
 | Function | Use for |
 |-----------|----------|
-| `tambahData()` | Menambahkan data barang baru (nama, kategori, harga) ke dalam array `dataBarang`. |
-| `tampilkanData()` | Menampilkan seluruh data barang yang tersimpan di array. |
+| `addBarang()` | Menambahkan data barang baru (nama, kategori, harga) ke dalam array `dataBarang`. |
+| `toLowerCase()` | Helper untuk mengubah string menjadi huruf kecil (ASCII only). |
+| `showAllBarang()` | Menampilkan seluruh data barang yang tersimpan di array. |
+| `findBarangNama()` | Menampilkan seluruh data barang yang cocok atau mengandung keyword pencarian. |
 | `getHargaByKategori()` | Mengambil seluruh daftar harga dari kategori tertentu dan menyimpannya ke dalam array `hargaKategori`. |
 | `insertionSort()` | Mengurutkan array `hargaKategori` secara ascending menggunakan algoritma Insertion Sort. |
 | `binarySearch()` | Mencari harga yang sesuai atau paling dekat dengan input pengguna menggunakan algoritma Binary Search. |
