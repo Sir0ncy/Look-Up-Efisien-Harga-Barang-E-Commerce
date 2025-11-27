@@ -154,6 +154,118 @@ int binarySearch(const std::vector<int> &arr, int target) {
 }
 
 int main() {
+std::vector<Barang> dataBarang;
+    int pilihan = 0;
 
+    while (true) {
+        std::cout << "\n===== MENU =====\n";
+        std::cout << "1. Tambah Barang\n";
+        std::cout << "2. Tampilkan Semua Barang\n";
+        std::cout << "3. Cari Barang Berdasarkan Nama\n";
+        std::cout << "4. Cari Harga Berdasarkan Kategori\n";
+        std::cout << "5. Keluar\n";
+        std::cout << "Pilih: ";
+
+        while (!(std::cin >> pilihan)) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "Masukkan angka valid: ";
+        }
+        std::cin.ignore(); // buang newline
+
+        if (pilihan == 1) {
+            addBarang(dataBarang);
+        }
+
+        else if (pilihan == 2)
+        {
+            if (dataBarang.empty())
+            {
+                std::cout << "Belum ada data barang!\n";
+                continue;
+            }
+            showAllBarang(dataBarang);
+        }
+
+        else if (pilihan == 3)
+        {
+            if (dataBarang.empty())
+            {
+                std::cout << "Belum ada data barang!\n";
+                continue;
+            }
+            std::string cari;
+            std::cout << "Masukkan nama barang: ";
+            std::getline(std::cin, cari);
+            findBarangNama(dataBarang, cari);
+        }
+
+        else if (pilihan == 4)
+        {
+            if (dataBarang.empty())
+            {
+                std::cout << "Belum ada data barang!\n";
+                continue;
+            }
+
+            std::string kategori;
+            std::cout << "Masukkan kategori: ";
+            std::getline(std::cin, kategori);
+
+            std::vector<int> hargaKategori;
+            std::vector<int> indexKategori;
+
+            int jumlah = getHargaByKategori(dataBarang, kategori, hargaKategori, indexKategori);
+
+            if (jumlah == 0)
+            {
+                std::cout << "Tidak ada barang pada kategori tersebut.\n";
+                continue;
+            }
+
+            insertionSortParallel(hargaKategori, indexKategori);
+
+            int target;
+            std::cout << "Masukkan harga yang dicari: ";
+            while (!(std::cin >> target))
+            {
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
+                std::cout << "Masukkan angka harga valid: ";
+            }
+            std::cin.ignore();
+
+            int index = binarySearch(hargaKategori, target);
+            int realIndexStruct = indexKategori[index];
+
+            std::cout << "\nHarga yang paling mendekati / sama:\n";
+
+            std::cout << "=============================================\n";
+            std::cout << std::left
+                      << std::setw(20) << "Nama Barang"
+                      << std::setw(15) << "Kategori"
+                      << std::setw(10) << "Harga"
+                      << "\n";
+            std::cout << "=============================================\n";
+
+            const Barang &b = dataBarang[realIndexStruct];
+            std::cout << std::left
+                        << std::setw(20) << b.nama
+                        << std::setw(15) << b.kategori
+                        << std::setw(10) << b.harga
+                        << "\n";
+        }
+
+        else if (pilihan == 5)
+        {
+            std::cout << "Keluar...\n";
+            break;
+        }
+
+        else
+        {
+            std::cout << "Pilihan tidak valid!\n";
+        }
+    }
     return 0;
 }
