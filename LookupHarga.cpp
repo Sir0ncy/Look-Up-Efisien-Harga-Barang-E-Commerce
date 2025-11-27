@@ -96,7 +96,7 @@ void findBarangNama(const std::vector<Barang>& dataBarang, std::string& findNama
 }
 
 // Method simpan semua harga barang sesuai kategori yang dicari
-int getHargaByKategori(const std::vector<Barang>& dataBarang, std::string kategori, std::vector<int> hargaKategori) {
+int getHargaByKategori(const std::vector<Barang>& dataBarang, std::string kategori, std::vector<int>& hargaKategori) {
     hargaKategori.clear();
     for (int i = 0; i < dataBarang.size(); i++) {
         if (dataBarang[i].kategori == kategori) hargaKategori.push_back(dataBarang[i].harga);
@@ -141,6 +141,6 @@ int binarySearch(const std::vector<int>& arr, int target) {
 
 int main() {
     
-    
+
     return 0;
 }
